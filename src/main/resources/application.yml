@@ -1,0 +1,21 @@
+server:
+  port: 8084
+  servlet:
+    session:
+      timeout: 30m
+
+application:
+  client:
+    clientId: app3
+    clientSecret: secret
+    accessTokenUri: http://localhost:8081/auth/oauth/token
+    userAuthorizationUri: http://localhost:8081/auth/oauth/authorize
+#    tokenName: oauth_token
+#    authenticationScheme: query
+#    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: http://localhost:8081/auth/user/me
+
+logging:
+  level:
+    org.springframework.security: DEBUG
