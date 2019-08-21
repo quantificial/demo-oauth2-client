@@ -42,10 +42,12 @@
 	        <li><a href="#">site map</a></li> 
 	         
 	      </ul>
+	      <#if !model["username"]?has_content>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	        <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
 	        <li><a href="/login/sso"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>
+	      </#if>
 	    </div>
 	  </div>
 	</nav>
@@ -54,29 +56,43 @@
 	<div class="jumbotron">
 	  <h1 class="display-4">Landing Page</h1>
 	  <h2 class="display-4">SSO Application Client Demo</h2>
-	  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+	  <p class="lead">This is repsonsive website, This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
 	  <hr class="my-4">
 	  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
 	  
-	  <hr class="my-4">
+ 
 	  
-	    <div class="container authenticated" style="display: none">
+	  <hr class="my-4">
+	  	 	  
+	  											
+			<#if model["username"]?has_content>
+			
+	   	    <div class="container authenticated">
 	    	<div>
-	        	Logged in as: <span id="user"></span>
+	    		<p>
+	        		<span class="badge badge-pill badge-success">Success</span> Logged in as: ${model["username"]}</span>
+	        	</p>
 	        </div>
 	        
 	        <div>
-	        	Your authorities are <span id="authorities">authorities</span>
+	        	Your authorities are...
+	        	
+	        	<#list model["authorities"] as item>
+	        		${item} 
+	        	</#list>
 	        </div>
 	        
 	        <div>
-	        ....
+		        <p>....</p>	        
+		        <p>${model["secret"]}</p>	        
+		        <p>...</p>
 	        </div>
 	        
             <!-- <button onClick="logout()" class="btn btn-primary">Logout</button> -->
             <p>
-            	<a href="/logout"><button class="btn btn-primary btn-lg" >Logout</button></a>
+            	<a href="/logout"><button class="btn btn-primary btn-md" >Logout</button></a>
             </p>
+	        </#if>
 	        
 	        
 	    </div>
@@ -84,51 +100,5 @@
 	</div>
 </div>	
 
-	<!-- 
-    <h1>Login</h1>
-    <div class="container unauthenticated">    
-        With Facebook: <a href="/login/sso">click here</a>
-    </div>
-    <div class="container authenticated" style="display: none">
-        Logged in as: <span id="user"></span>
-        <div>
-            <button onClick="logout()" class="btn btn-primary">Logout</button>
-        </div>
-    </div>
-     -->
-     
-    <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"></script>
-    
-    <script type="text/javascript">
-          $
-              .ajaxSetup({
-                beforeSend : function(xhr, settings) {
-                  if (settings.type == 'POST' || settings.type == 'PUT'
-                      || settings.type == 'DELETE') {
-                    if (!(/^http:.*/.test(settings.url) || /^https:.*/
-                        .test(settings.url))) {
-                      // Only send the token to relative URLs i.e. locally.
-                      xhr.setRequestHeader("X-XSRF-TOKEN",
-                          Cookies.get('XSRF-TOKEN'));
-                    }
-                  }
-                }
-              });
-          $.get("/user", function(data) {
-            $("#user").html(data.userAuthentication.details.name);
-            // ${#authentication.authorities}
-            $("#authorities").html(JSON.stringify(data.authorities));
-            $(".unauthenticated").hide();
-            $(".authenticated").show();
-          });
-          var logout = function() {
-            $.post("/logout", function() {
-              $("#user").html('');
-              $(".unauthenticated").show();
-              $(".authenticated").hide();
-            })
-            return true;
-          }
-        </script>
 </body>
 </html>
