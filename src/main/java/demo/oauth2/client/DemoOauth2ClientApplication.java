@@ -48,7 +48,7 @@ public class DemoOauth2ClientApplication extends WebSecurityConfigurerAdapter {
 		// @formatter:off
 		http
 			.antMatcher("/**").authorizeRequests()
-			.antMatchers("/", "/login**", "/webjars/**", "/error**").permitAll()
+			.antMatchers("/", "/login**", "/webjars/**", "/error**","/fonts/**").permitAll()
 			.anyRequest().authenticated().and().exceptionHandling()
 				.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
 			.and()

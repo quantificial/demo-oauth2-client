@@ -13,15 +13,27 @@
 <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <style>
+
+	 @font-face {
+	     font-family: 'Lora-Regular';
+	     src: url(fonts/Lora-Regular.woff2) format('woff2');
+	 }
+	 @font-face {
+	     font-family: 'Lora-RegularItalic';
+	     src: url(fonts/Lora-RegularItalic.woff2) format('woff2');
+	 }
+	 
 	@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 	@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
 	@import url(http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
 	@import url(http://fonts.googleapis.com/css?family=Lato:400,300,700);
 	@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
-	@import url(http://fonts.googleapis.com/css?family=Lora:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);	
+	@import url(http://fonts.googleapis.com/css?family=Lora:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+
 	body {
-		font-family: 'Lora','Lato','Roboto', 'Oswald', sans-serif !important;	
+		font-family: 'Lora-Regular','Lato','Roboto', 'Oswald', sans-serif !important;	
 	}
+	
 </style>
 </head>
 <body>
