@@ -96,7 +96,13 @@
 	        
 	        <div>
 		        <p>....</p>	        
-		        <p>${model["secret"]}</p>	        
+		        <p>${model["secret"]}</p>
+		       	<p>....</p>    
+		       	<p>Policy Information Retrieved from Remote Resources:</p> 
+		       	<p>${model["policies"]}</p>
+		       	
+		       			       	  		       	  
+		        
 		        <p>...</p>
 	        </div>
 	        
