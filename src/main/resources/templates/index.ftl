@@ -98,8 +98,12 @@
 		        <p>....</p>	        
 		        <p>${model["secret"]}</p>
 		       	<p>....</p>    
+		       	
+		       	<#if model["policies"]??>
 		       	<p>Policy Information Retrieved from Remote Resources:</p> 
+		       			       	
 		       	<p>${model["policies"]}</p>
+		       	</#if>
 		       	
 		       			       	  		       	  
 		        

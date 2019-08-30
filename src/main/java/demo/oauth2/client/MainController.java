@@ -28,11 +28,15 @@ public class MainController {
 		
 		model.addAttribute("secret", "this is secret message!");
 		
+		
+		try {
 		// consume remote oauth2 protected resources		
 		String result = oauth2RestTemplate.getForObject("http://localhost:8089/api/policies", String.class);		
 		log.info(result);		
 		model.addAttribute("policies",result);
-		
+		}catch(Exception ex) {
+			log.error(ex.toString());
+		}
 		
 
 		if(principal!=null) {
